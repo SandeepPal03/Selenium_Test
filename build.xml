@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Selenium_Test" default="run">
+
+        
+      <target name="delete">
+         <delete dir="./build/bin"/>
+         <delete dir="./build/src"/>
+         <delete dir="./build/lib"/>
+         <delete dir="./build/test-output"/>
+     </target>
+     
+     
+     <path id="classpath">
+      <pathelement location="C:\Users\Sandeep\workspace\Selenium_Test\build\lib\selenium-server-standalone-3.4.0.jar"/>
+      <pathelement location="C:\Users\Sandeep\workspace\Selenium_Test\build\bin"/>
+      </path>
+     
+ 
+     
+    <target name="create" depends="delete">
+         <mkdir dir="./build/bin"/>
+         <mkdir dir="./build/src"/>
+         <mkdir dir="./build/lib"/>
+         <mkdir dir="./build/test-output"/>
+     </target>
+     
+     <target name="copy" depends="create">
+         <copydir dest="C:\Users\Sandeep\workspace\Selenium_Test\build\src"  src ="C:\Users\Sandeep\workspace\Selenium_Test\src" excludes="**/lib/**" /> 
+         <copy todir ="C:\Users\Sandeep\workspace\Selenium_Test\build\lib" overwrite ="true" >
+         <fileset dir="C:\Users\Sandeep\workspace\Selenium_Test\lib\Jars" includes="**/*.jar"></fileset>
+         </copy>
+     </target>
+     
+      <target name="compile" depends="copy">
+     <javac classpathref="classpath" includeantruntime="false" srcdir="C:\Users\Sandeep\workspace\Selenium_Test\build\src" destdir= "C:\Users\Sandeep\workspace\Selenium_Test\build\bin" includes="**/*.java"/>
+     </target>
+
+  <target name="run" depends="compile">
+  <java classname="Package.Selenium_GoogleSearch">
+      <classpath path="./build/bin"/>
+  </java>
+        
+     </target>
+
+</project>
