@@ -12,8 +12,8 @@
      
      
      <path id="classpath">
-      <pathelement location="C:\Users\Sandeep\workspace\Selenium_Test\build\lib\selenium-server-standalone-3.4.0.jar"/>
-      <pathelement location="C:\Users\Sandeep\workspace\Selenium_Test\build\bin"/>
+      <pathelement location="C:\Jenkins\workspace\Selenium_Test\build\lib\selenium-server-standalone-3.4.0.jar"/>
+      <pathelement location="C:\Jenkins\workspace\Selenium_Test\build\bin"/>
       </path>
      
  
@@ -26,14 +26,14 @@
      </target>
      
      <target name="copy" depends="create">
-         <copydir dest="C:\Users\Sandeep\workspace\Selenium_Test\build\src"  src ="C:\Users\Sandeep\workspace\Selenium_Test\src" excludes="**/lib/**" /> 
-         <copy todir ="C:\Users\Sandeep\workspace\Selenium_Test\build\lib" overwrite ="true" >
-         <fileset dir="C:\Users\Sandeep\workspace\Selenium_Test\lib\Jars" includes="**/*.jar"></fileset>
+         <copydir dest="C:\Jenkins\workspace\Selenium_Test\build\src"  src ="C:\Jenkins\workspace\Selenium_Test\src" excludes="**/lib/**" /> 
+         <copy todir ="C:\Jenkins\workspace\Selenium_Test\build\lib" overwrite ="true" >
+         <fileset dir="C:\Jenkins\workspace\Selenium_Test\lib\Jars" includes="**/*.jar"></fileset>
          </copy>
      </target>
      
       <target name="compile" depends="copy">
-     <javac classpathref="classpath" includeantruntime="false" srcdir="C:\Users\Sandeep\workspace\Selenium_Test\build\src" destdir= "C:\Users\Sandeep\workspace\Selenium_Test\build\bin" includes="**/*.java"/>
+     <javac classpathref="classpath" includeantruntime="false" srcdir="C:\Jenkins\workspace\Selenium_Test\build\src" destdir= "C:\Jenkins\workspace\Selenium_Test\build\bin" includes="**/*.java"/>
      </target>
 
   <target name="run" depends="compile">
